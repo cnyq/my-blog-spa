@@ -1,5 +1,5 @@
 import Vue from 'vue'
-// import '@/router/routerConfig'
+import '@/router/routerConfig'
 import 'normalize.css/normalize.css'
 import '@/assets/styles/index.scss'
 import ElementUI from 'element-ui'
