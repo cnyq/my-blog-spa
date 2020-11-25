@@ -63,17 +63,17 @@ module.exports = {
     overlay: {
       warnings: false,
       errors: true
-    }
+    },
     // 代理服务器配置
-    // proxy: {
-    //     [process.env.VUE_APP_BASE_API]: {
-    //         target: `http://localhost:3000/api`,
-    //         changeOrigin: true,
-    //         pathRewrite: {
-    //            ['^' + process.env.VUE_APP_BASE_API]: ''
-    //         }
-    //     },
-    // }
+    proxy: {
+      '/api': {
+        target: process.env.target,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': '/api'
+        }
+      },
+    }
   },
   configureWebpack: () => {
     return {
@@ -149,7 +149,8 @@ module.exports = {
   css: {
     // 是否使用css分离插件 ExtractTextPlugin
     extract: !IS_DEV,
-    modules: false,
+    // modules: false,
+    requireModuleExtension: false,
     // 开启 CSS source maps?
     sourceMap: IS_DEV
   }

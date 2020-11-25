@@ -5,13 +5,25 @@
         <div class="logo mid">logo</div>
       </el-col>
       <el-col :sm="16" :xs="12" class="header_ri">
-        <div class="mid">menu</div>
+        <div class="menu mid"></div>
       </el-col>
     </el-row>
   </el-header>
 </template>
 <script>
-export default {};
+export default {
+  data() {
+    return {};
+  },
+  mounted() {
+    console.log('aaa')
+    this.$axios
+      .get("list")
+      .then(res => {
+        console.log(res)
+      });
+  },
+};
 </script>
 <style lang="scss">
 .header {

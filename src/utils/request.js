@@ -18,7 +18,7 @@ const service = axios.create({
 service.interceptors.request.use(
 	config => {
 		if (store.getters.token) {
-			config.headers['Authorization'] = 'Bearer ' + getToken()
+			// config.headers['Authorization'] = 'Bearer ' + getToken()
 			config.headers['Content-Type'] = 'application/json'
 		}
 		return config
@@ -62,7 +62,7 @@ service.interceptors.response.use(
 			})
 			return Promise.reject(new Error(res.msg || 'Error'))
 		}
-		return res.data
+		return res
 	},
 	error => {
 		console.log('err' + error) // for debug
