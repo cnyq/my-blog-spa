@@ -1,8 +1,23 @@
 .light_theme {
-  --navDefaultAColor: #fff;//默认连接颜色
-  --navHoverAColor: rgba(255, 255, 255, .8);//默认连接颜色
-  --navActiveAColor: #7fe7fd;//默认连接颜色
+  --navDefaultAColor: #fff; //默认连接颜色
+  --navHoverAColor: rgba(255, 255, 255, .8); //默认连接颜色
+  --navActiveAColor: #7fe7fd; //默认连接颜色
+  --navBannerBg: rgba(255,255,255,.8);
+  --navShowTxtDefaultColor: #000; 
+  --navShowTxtHoverColor:#333;
+  --navShowTxtActiveColor:#d54e1f;
 }
+
+.dark_theme {
+  --navDefaultAColor: rgba(255, 255, 255, .8); //默认连接颜色
+  --navHoverAColor: #fff; //默认连接颜色
+  --navActiveAColor: #7fe7fd; //默认连接颜色
+  --navBannerBg: rgba(230, 228, 228, 0.8);
+  --navShowTxtDefaultColor: #444;
+  --navShowTxtHoverColor:#888;
+  --navShowTxtActiveColor:#b4411a;
+}
+
 .iconfont {
   width: 30px;
   height: 30px;

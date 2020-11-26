@@ -1,5 +1,5 @@
 <template>
-  <nav class="nav light-default">
+  <nav :class="['nav', scroll > 60 ? (hideNav ? 'hideNav' : 'showNav') : '']">
     <el-row :gutter="10">
       <el-col :sm="8" :xs="12" class="nav_le">
         <div class="logo">
@@ -32,6 +32,14 @@
 <script>
 import { mapGetters } from "vuex";
 export default {
+  props: {
+    scroll: {
+      type: Number,
+    },
+    hideNav: {
+      type: Boolean,
+    },
+  },
   data() {
     return {
       menuList: [
@@ -72,6 +80,8 @@ export default {
   font-weight: 800;
   letter-spacing: 2px;
   user-select: none;
+  transition: 0.5s;
+  // transform: translate3d(0,100%,0);
   .logo {
     font-size: 16px;
     padding-left: 20px;
@@ -101,10 +111,6 @@ export default {
     border-bottom: none;
     color: var(--navDefaultAColor);
   }
-  .el-menu--horizontal > .el-menu-item.is-active {
-    color: var(--navActiveAColor) !important;
-    border-bottom: none;
-  }
   .el-menu-item:focus,
   .el-menu-item:hover {
     background: transparent !important;
@@ -112,6 +118,38 @@ export default {
   .el-menu--horizontal .el-menu-item:not(.is-disabled):focus,
   .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
     color: var(--navHoverAColor);
+  }
+  .el-menu--horizontal > .el-menu-item.is-active {
+    color: var(--navActiveAColor);
+    border-bottom: none;
+    &:hover {
+      color: var(--navActiveAColor);
+    }
+  }
+}
+.nav.hideNav {
+  top: -60px;
+}
+.nav.showNav {
+  background: var(--navBannerBg);
+  .logo {
+    a {
+      color: var(--navShowTxtColor);
+    }
+  }
+  .el-menu--horizontal > .el-menu-item {
+    color: var(--navShowTxtDefaultColor);
+  }
+  .el-menu--horizontal .el-menu-item:not(.is-disabled):focus,
+  .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
+    color: var(--navShowTxtHoverColor);
+  }
+  .el-menu--horizontal > .el-menu-item.is-active {
+    color: var(--navShowTxtActiveColor);
+    border-bottom: none;
+    &:hover {
+      color: var(--navShowTxtActiveColor);
+    }
   }
 }
 </style>

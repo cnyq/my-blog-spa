@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Nav />
+    <Nav :scroll="scroll" :hideNav="hideNav" />
     <Header />
     <Header />
     <Header />
@@ -9,13 +9,13 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
+import scrollmixin from "@/components/mixin/scrollmixin";
 export default {
   name: "home",
+  mixins: [scrollmixin],
   data() {
-    return {
-      scroll: 0,
-    };
+    return {};
   },
   components: {
     Nav(resolve) {
@@ -26,33 +26,9 @@ export default {
     },
   },
   computed: {
-    ...mapGetters([
-      'themeState'
-    ]),
+    ...mapGetters(["themeState"]),
   },
-  created() {
-    this.listenerScroll();
-  },
-  beforeDestroy() {
-    document.removeEventListener("scroll", this.handleScroll);
-  },
-  methods: {
-    listenerScroll(e) {
-      document.addEventListener("scroll", this.handleScroll);
-    },
-    handleScroll() {
-      let scrollTop =
-        window.pageYOffset ||
-        document.documentElement.scrollTop ||
-        document.body.scrollTop;
-      let scrollCount = scrollTop - this.scroll;
-      this.scroll = scrollTop;
-      if (scrollCount < 0) {
-        console.log("up");
-      } else {
-        console.log("down");
-      }
-    },
-  },
+  created() {},
+  methods: {},
 };
 </script>
