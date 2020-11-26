@@ -152,6 +152,12 @@ module.exports = {
     // modules: false,
     requireModuleExtension: false,
     // 开启 CSS source maps?
-    sourceMap: IS_DEV
+    sourceMap: IS_DEV,
+    loaderOptions: {
+      // 设置 scss 公用变量文件
+      sass: {
+        prependData: `@import '~@/assets/styles/themeSetting.scss';`
+      }
+    }
   }
 }

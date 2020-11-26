@@ -1,6 +1,5 @@
 const getters = {
   //app
-  isCollapse: state => state.app.isCollapse,
-  breadcrumbList: state => state.app.breadcrumbList
+  themeState: state => state.app.themeState
 }
 export default getters

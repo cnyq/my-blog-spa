@@ -1,29 +1,31 @@
+function dateJudge() {
+	let now = new Date(), hour = now.getHours()
+	document.body.removeAttribute('class')
+	if (hour > 9 && hour < 19) {
+		document.getElementsByTagName('body')[0].className = 'light_theme'
+		return 0
+	} else {
+		document.getElementsByTagName('body')[0].className = 'dark_theme'
+		return 1
+	}
+}
 const states = {
-	isCollapse: sessionStorage.getItem('isCollapse') ? sessionStorage.getItem('isCollapse') - 0 ? true : false : false,
-	breadcrumbList: []
+	themeState: dateJudge()
 }
 
 const mutations = {
-	UPDATE_COLLAPSE(state, param) {
-		state.isCollapse = param
-		let set = param ? 1 : 0
-		sessionStorage.setItem('isCollapse', set)
-	},
-	UPDATE_CRUMB_LIST(state, param) {
-		state.breadcrumbList = param
+	UPDATE_THEME_STATE(state, param) {
+		document.body.removeAttribute('class')
+		document.getElementsByTagName('body')[0].className = param ? 'dark_theme' : 'light_theme'
+		state.themeState = param
 	}
 }
 const actions = {
-	updateCollapse({ //左侧菜单是否折叠
+	updateThemeState({
 		commit
 	}, param) {
-		commit('UPDATE_COLLAPSE', param)
-	},
-	updateCrumbList({ //面包屑
-		commit
-	}, param) {
-		commit('UPDATE_CRUMB_LIST', param)
-	},
+		commit('UPDATE_THEME_STATE', param)
+	}
 }
 
 export default {
