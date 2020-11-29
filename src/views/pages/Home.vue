@@ -2,9 +2,7 @@
   <div>
     <Nav :scroll="scroll" :hideNav="hideNav" />
     <Header />
-    <Header />
-    <Header />
-    <Header />
+    <Container />
   </div>
 </template>
 
@@ -23,6 +21,9 @@ export default {
     },
     Header(resolve) {
       require(["@/views/components/home/header.vue"], resolve);
+    },
+    Container(resolve) {
+      require(["@/views/components/home/container.vue"], resolve);
     },
   },
   computed: {

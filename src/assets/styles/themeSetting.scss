@@ -1,21 +1,37 @@
 .light_theme {
+  --bodyBg:#fff;
   --navDefaultAColor: #fff; //默认连接颜色
   --navHoverAColor: rgba(255, 255, 255, .8); //默认连接颜色
   --navActiveAColor: #7fe7fd; //默认连接颜色
-  --navBannerBg: rgba(255,255,255,.8);
-  --navShowTxtDefaultColor: #000; 
-  --navShowTxtHoverColor:#333;
-  --navShowTxtActiveColor:#d54e1f;
+  --navBannerBg: rgba(255, 255, 255, .8);
+  --navShowTxtDefaultColor: #000;
+  --navShowTxtHoverColor: #333;
+  --navShowTxtActiveColor: #d54e1f;
+  --containerBg: #fff;
+  --perviewBorderColor: #eee;
+  --perviewTitleColor: #222;
+  --perviewSynopsisColor: #a3a3a3;
+  --perviewTagsColor: #666;
+  --perviewPostedColor: #333;
+  --perviewLinkHover:#337ab7;
 }
 
 .dark_theme {
+  --bodyBg:#222631;
   --navDefaultAColor: rgba(255, 255, 255, .8); //默认连接颜色
   --navHoverAColor: #fff; //默认连接颜色
   --navActiveAColor: #7fe7fd; //默认连接颜色
   --navBannerBg: rgba(230, 228, 228, 0.8);
   --navShowTxtDefaultColor: #444;
-  --navShowTxtHoverColor:#888;
-  --navShowTxtActiveColor:#b4411a;
+  --navShowTxtHoverColor: #888;
+  --navShowTxtActiveColor: #b4411a;
+  --containerBg: #222631;
+  --perviewBorderColor: #4a4a4a;
+  --perviewTitleColor: rgba(230, 230, 230, 1);
+  --perviewSynopsisColor: #a3a3a3;
+  --perviewTagsColor: rgba(255, 255, 255, .8);
+  --perviewPostedColor: #808080;
+  --perviewLinkHover:#e91e63;
 }
 
 .iconfont {
