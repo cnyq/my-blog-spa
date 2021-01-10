@@ -6,6 +6,7 @@ import '@/assets/iconfont/index.js'
 import request from '@/utils/request'
 import ElementUI from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/zh-CN'
+import '@/global'
 //过滤器
 import filter from '@/utils/filter'
 Object.keys(filter).forEach(key => Vue.filter(key, filter[key]))
