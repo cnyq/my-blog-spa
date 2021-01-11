@@ -3,18 +3,23 @@
     <div class="wrap" v-loading="articleLoading">
       <template v-for="(item, index) in articleList">
         <div class="perview" :key="index">
-          <div class="title">{{ item.name }}</div>
+          <div class="title">
+            <span @click="toArticle(item._id)">{{ item.name }}</span>
+          </div>
           <div class="synopsis">{{ item.synopsis }}</div>
           <div class="posted">
             Posted {{ item.author }} on
             {{ item.writing_time | filterFormatTime("yyyy年MM月dd日") }}
           </div>
           <div class="tags">
-            <span v-for="(tag, index) in item.tag" :key="index">{{ tag.name }}</span>
+            <span v-for="(tag, index) in item.tag" :key="index">{{
+              tag.name
+            }}</span>
           </div>
         </div>
       </template>
       <el-pagination
+        class="myPag"
         @size-change="sizeChange"
         @current-change="currentChange"
         :current-page="params.pageNum"
@@ -59,6 +64,12 @@ export default {
       this.params.pageNum = page;
       this.getArticleList();
     },
+    toArticle(id) {
+      this.$router.push({
+        name: "article",
+        query: {id},
+      });
+    },
   },
 };
 </script>
@@ -67,25 +78,28 @@ export default {
   background: var(--containerBg);
 }
 .homeMain {
+  padding-bottom: 50px;
   .wrap {
-    width: 1200px;
+    width: 800px;
     margin: 0 auto;
   }
   .perview {
     padding: 30px 0 20px 0;
-    border-bottom: 1px solid var(--perviewBorderColor);
+    border-top: 1px solid var(--perviewBorderColor);
     &:last-child {
-      border-bottom: none;
+      border-top: none;
     }
     .title {
       font-size: 26px;
       line-height: 1.3;
       margin-bottom: 10px;
       font-weight: 600;
-      color: var(--perviewTitleColor);
-      cursor: pointer;
-      &:hover {
-        color: var(--perviewLinkHover);
+      span {
+        color: var(--perviewTitleColor);
+        cursor: pointer;
+        &:hover {
+          color: var(--perviewLinkHover);
+        }
       }
     }
     .synopsis {
@@ -118,6 +132,21 @@ export default {
           border: 1px solid var(--perviewLinkHover);
         }
       }
+    }
+  }
+  .myPag {
+    padding-top: 30px;
+    text-align: center;
+    button:disabled {
+      background: transparent;
+    }
+    .btn-next,
+    .el-pagination .btn-prev {
+      background: transparent;
+    }
+    .el-dialog,
+    .el-pager li {
+      background: transparent;
     }
   }
 }

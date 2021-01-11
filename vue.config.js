@@ -92,6 +92,14 @@ module.exports = {
         return options
       })
       .end()
+    config.module
+      .rule('md')
+      .test(/\.md/)
+      .use('html-loader')
+      .loader('html-loader')
+      .end()
+      .use('markdown-loader')
+      .loader('markdown-loader')
     config.plugin('html').tap(args => {
       args[0].title = title // 应用的名字
       return args
@@ -153,11 +161,11 @@ module.exports = {
     requireModuleExtension: false,
     // 开启 CSS source maps?
     sourceMap: IS_DEV,
-    loaderOptions: {
-      // 设置 scss 公用变量文件
-      sass: {
-        prependData: `@import '~@/assets/styles/themeSetting.scss';`
-      }
-    }
+    // loaderOptions: {
+    //   // 设置 scss 公用变量文件
+    //   sass: {
+    //     prependData: `@import '~@/assets/styles/themeSetting.scss';`
+    //   }
+    // }
   }
 }

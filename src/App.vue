@@ -11,6 +11,7 @@ export default {
 };
 </script>
 <style lang="scss">
+@import './assets/styles/index.scss';
 #app{
   height: 100vh;
   background: var(--bodyBg);

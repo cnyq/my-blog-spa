@@ -14,7 +14,7 @@ export default {
       require(["@/views/components/layout/nav.vue"], resolve);
     },
     Header(resolve) {
-      require(["@/views/components/home/header.vue"], resolve);
+      require(["@/views/components/layout/header.vue"], resolve);
     },
   },
 };

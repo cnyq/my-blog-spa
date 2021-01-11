@@ -25,10 +25,10 @@ export default{
       let scrollCount = scrollTop - this.scroll;
       this.scroll = scrollTop;
       if (scrollCount < 0) {
-        console.log("up");
+        // console.log("up");
         this.hideNav = false
       } else {
-        console.log("down")
+        // console.log("down")
         this.hideNav = true
       }
     },
