@@ -3,7 +3,7 @@
     <Nav :scroll="scroll" :hideNav="hideNav" />
     <Header />
     <div class="container"></div>
-    <div class="markdown-body" v-html="mdPath"></div>
+    <div class="markdown-body" v-html="mdHtml"></div>
   </div>
 </template>
 
@@ -18,11 +18,8 @@ export default {
     return {
       articleId: this.$route.query.id,
       articleLoading: true,
-      article: {
-        mdPath: "",
-      },
-      myMd: require("@/assets/myMd.md"),
-      mdPath:"",
+      article: {},
+      mdHtml:""
     };
   },
   components: {
@@ -50,12 +47,7 @@ export default {
           if (res.code == 200) {
             this.articleLoading = false;
             this.article = res.data;
-            // let converter = new showdown.Converter();
-            // let html = `<a href="${res.data.mdPath}"></a>`;
-            // let md = converter.makeMarkdown(html);
-            // console.log(converter,html,md)
-            // let text = md.toString();
-            // this.mdPath = converter.makeHtml(text);
+            this.mdHtml = JSON.parse(res.data.mdInfo.info)
           }
         });
     },
@@ -65,9 +57,10 @@ export default {
 <style lang="scss">
 .markdown-body {
   padding: 20px;
+  margin: 0 auto;
   min-width: 200px;
   max-width: 900px;
-  font-size: 12px;
+  // font-size: 12px;
   h2 {
     font-size: 18px;
     margin: 1em 0 15px;
