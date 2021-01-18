@@ -23,7 +23,7 @@ const cdnMap = {
     'https://cdn.bootcss.com/vue-router/3.0.3/vue-router.min.js',
     'https://cdn.bootcss.com/vuex/3.1.0/vuex.min.js',
     'https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js',
-    'https://unpkg.com/element-ui@2.14.1/lib/index.js'
+    'https://cdn.bootcdn.net/ajax/libs/element-ui/2.14.1/index.min.js'
   ]
 }
 function resolve(dir) {
@@ -51,7 +51,7 @@ const commonWebPackConfig = {
   }
 }
 module.exports = {
-  publicPath: IS_DEV ? './' : '/',
+  publicPath: './',
   outputDir: 'dist',
   assetsDir: 'static',
   lintOnSave: false,
