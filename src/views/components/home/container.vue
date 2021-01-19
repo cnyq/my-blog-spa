@@ -19,6 +19,7 @@
         </div>
       </template>
       <el-pagination
+        v-if="total"
         class="myPag"
         @size-change="sizeChange"
         @current-change="currentChange"
@@ -86,7 +87,7 @@ export default {
   .perview {
     padding: 30px 0 20px 0;
     border-top: 1px solid var(--perviewBorderColor);
-    &:last-child {
+    &:first-child {
       border-top: none;
     }
     .title {
